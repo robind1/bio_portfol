@@ -6,5 +6,3 @@ collection: projects
 entries_layout: grid
 classes: wide
 ---
-
-Selected bioinformatics projects
