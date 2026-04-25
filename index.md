@@ -33,7 +33,7 @@ feature_row_pathogens:
     btn_class: "btn--primary"
   - image_path: "/assets/images/FHIR_logo.png"
     alt: "Dengue genomic to FHIR analysis pipeline"
-    title: "Dengue Genomic to FHIR Analysis"
+    title: "Dengue Genomic to FHIR pipeline"
     excerpt: "Pan-serotype dengue workflow with serotype, genotype, lineage, and mutation reporting in FHIR Genomics."
     url: "/projects/2026-04-25-dengue-genomic-to-fhir-analysis-pipeline/"
     btn_label: "Details"
@@ -44,7 +44,7 @@ feature_row_pathogens:
 {: style="display:block; max-width:760px; margin:1.5rem auto 1.5rem;" }
 
 I am a bioinformatician focused on pathogen genomics, algorithm design, reproducible workflow design, and interoperability. My work combines sequencing analysis with standardized Fast Healthcare Interoperability Resources (FHIR) that turn genomic findings into practical outputs for interpretation, surveillance, and downstream integration.
-{: style="max-width:860px; margin:0 auto 2.25rem; font-size:1rem; line-height:1.8;" }
+{: style="max-width:860px; margin:0 auto 2.25rem; font-size:0.96rem; line-height:1.8;" }
 
 ## Featured Works
 
