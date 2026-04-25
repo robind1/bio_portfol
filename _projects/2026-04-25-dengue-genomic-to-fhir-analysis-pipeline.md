@@ -1,6 +1,8 @@
 ---
 title: "Dengue Genomic to FHIR Analysis pipeline"
 excerpt: "Nextflow pipeline for pan-serotype dengue genomic analysis from Illumina and Nanopore data with FHIR Genomics outputs."
+header:
+  teaser: "/assets/images/FHIR_logo.png"
 tags:
   - Dengue virus
   - Nextflow
