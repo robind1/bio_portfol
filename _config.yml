@@ -1,4 +1,4 @@
-title: "Robin Dosan | Bioinformatics Portfolio"
+title: "Robin Dosan"
 url: "https://robind1.github.io"
 baseurl: "/githubio_bioinfor_portfol"
 repository: "robind1/githubio_bioinfor_portfol"
@@ -9,10 +9,12 @@ search: true
 teaser: "/assets/images/portfol-1.svg"
 minimal_mistakes_skin: "default"
 
+atom_feed:
+  hide: true
+
 remote_theme: "mmistakes/minimal-mistakes@4.26.2"
 plugins:
   - jekyll-include-cache
-  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
 
