@@ -9,8 +9,6 @@ header:
   actions:
     - label: "View Projects"
       url: "/projects/"
-    - label: "About Me"
-      url: "/about/"
 feature_row_pathogens:
   - image_path: "/assets/images/FHIR_logo.png"
     alt: "Platform-agnostic TB to FHIR pipeline"
@@ -42,7 +40,7 @@ feature_row_pathogens:
     btn_class: "btn--primary"
 ---
 
-{% include feature_row id="intro" type="center" %}
+I am a bioinformatician focused on pathogen genomics, algorithm design, reproducible workflow design, and FHIR-based interoperability. My work combines sequencing analysis with standardized Fast Healthcare Interoperability Resources (FHIR) that turn genomic findings into practical outputs for interpretation, surveillance, and downstream integration.
 
 ## Featured Works
 
