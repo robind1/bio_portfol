@@ -43,7 +43,6 @@ defaults:
       author_profile: true
 
 author:
-  name: "Robin Dosan"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
