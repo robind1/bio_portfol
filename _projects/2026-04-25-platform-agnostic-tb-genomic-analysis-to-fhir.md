@@ -1,6 +1,8 @@
 ---
 title: "Platform-agnostic TB Genomic Analysis to FHIR pipeline"
 excerpt: "Nextflow pipeline for TB resistance and lineage analysis (Illumina, Nanopore, and raw VCF) with FHIR Genomics outputs."
+header:
+  teaser: "/assets/images/FHIR_logo.png"
 tags:
   - Tuberculosis
   - Nextflow
