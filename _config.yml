@@ -32,6 +32,7 @@ defaults:
       type: projects
     values:
       layout: single
+      classes: project-page
       author_profile: true
       share: false
       related: false
