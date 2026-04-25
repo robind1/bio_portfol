@@ -1,6 +1,8 @@
 ---
 title: "Deeplex Myc-TB to FHIR pipeline"
 excerpt: "Nextflow pipeline for analyzing Deeplex Myc-TB targeted sequencing (tNGS) outputs into FHIR Genomics clinical reporting."
+header:
+  teaser: "/assets/images/Image-Deeplex6.png"
 tags:
   - Tuberculosis
   - Nextflow
