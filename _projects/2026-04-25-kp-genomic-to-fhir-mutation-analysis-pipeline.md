@@ -1,98 +1,97 @@
 ---
-title: "KP Genomic to FHIR Mutation Analysis pipeline"
-excerpt: "Nextflow pipeline for Klebsiella pneumoniae genomic analysis from Illumina and Nanopore data with FHIR Genomics outputs."
+title: "Deeplex Myc-TB to FHIR pipeline"
+excerpt: "Nextflow pipeline for analyzing Deeplex Myc-TB targeted sequencing (tNGS) outputs into FHIR Genomics clinical reporting."
+header:
+  teaser: "/assets/images/Image-Deeplex6.png"
 tags:
-  - Klebsiella pneumoniae
+  - Tuberculosis
   - Nextflow
   - FHIR
   - Genomics
-  - AMR
+  - Deeplex Myc-TB
 toc: true
 ---
 
 ## Overview
 
-This project develops a platform-agnostic pipeline for Klebsiella pneumoniae genomic data from Illumina and Nanopore sequencing to identify antimicrobial resistance and strain characteristics.
+This project develops a pipeline for Deeplex Myc-TB targeted sequencing (tNGS) outputs, converting assay-specific resistance and lineage findings into structured genomic reporting.
 
-The workflow integrates resistance gene detection, MLST, capsule typing, virulence scoring, and cgMLST analysis, then converts the results into [HL7 FHIR Genomics resources](https://build.fhir.org/genomics.html) for structured clinical reporting.
+The workflow processes Deeplex Excel reports, extracts variant and lineage information, and transforms the results into [HL7 FHIR Genomics resources](https://build.fhir.org/genomics.html) for interoperable downstream reporting.
 
-![Diagram Overview of the KP Genomic to FHIR Mutation Analysis Workflow]({{ '/assets/images/kp-pipeline.png' | relative_url }})
+![Diagram Overview of the Deeplex Myc-TB to FHIR Workflow]({{ '/assets/images/Deeplex_workflow.png' | relative_url }})
 
 The snippets below show the example of FHIR output produced by the pipeline.
 
 ```json
 {
-  "conclusion": "Carbapenem-resistant K. pneumoniae. Carbapenemases detected: KPC-3.. MLST ST45-1LV. Virulence score: 1.",
-  "conclusionCode": [
-    {
-      "coding": [
-        {
-          "system": "http://snomed.info/sct",
-          "code": "1098201000112108",
-          "display": "Carbapenemase-producing Klebsiella pneumoniae (organism)"
-        }
-      ],
-      "text": "Carbapenem-Resistant Enterobacteriaceae (CRE)"
-    },
-    {
-      "text": "MLST ST45-1LV"
-    }
-  ]
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "48005-3",
+        "display": "Amino acid change (pHGVS)"
+      }
+    ]
+  },
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "system": "https://varnomen.hgvs.org",
+        "code": "NC_000962.3:p.(H445D)",
+        "display": "H445D"
+      }
+    ],
+    "text": "H445D"
+  }
 }
 ```
 
 ```json
 {
-  "component": [
-    {
-      "code": {
-        "coding": [
-          {
-            "system": "http://loinc.org",
-            "code": "48018-6",
-            "display": "Gene studied [ID]"
-          }
-        ]
-      },
-      "valueCodeableConcept": {
-        "coding": [
-          {
-            "system": "http://www.genenames.org/geneId",
-            "code": "aac(3)-IV",
-            "display": "aac(3)-IV"
-          }
-        ],
-        "text": "aac(3)-IV"
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "53037-8",
+        "display": "Genetic variation clinical significance [Imp]"
       }
-    }
-  ]
+    ]
+  },
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://terminology.kemkes.go.id/sp",
+        "code": "SP000478",
+        "display": "Assoc w R"
+      }
+    ],
+    "text": "Associated with resistance"
+  }
 }
 ```
 
 ## Dataset and Inputs
 
-- Illumina paired-end sequencing reads
-- Oxford Nanopore (ONT) long-read sequencing data
+Deeplex Myc-TB Excel report outputs
 
 ## Methods and Workflow
 
-- Nextflow main workflow automatically detects whether the input is Illumina or Nanopore and routes samples to the correct sub-workflow
-- Performs read trimming, quality control, de novo assembly, and polishing using platform-specific tools
-- Uses [Kleborate](https://kleborate.readthedocs.io/en/latest/) based typing analysis to detect AMR genes, MLST sequence type, capsule type, virulence factors, and virulence score
-- Runs [cgMLST](https://www.cgmlst.org/ncs/schema/Kpneumoniae_complex/) analysis to characterize strain relatedness and summarize allele calling statistics
-- Converts genomic typing outputs into [HL7 FHIR Genomics resources](https://build.fhir.org/genomics.html) including resistance observations, susceptibility panels, MLST and cgMLST observations, capsule type, virulence score, and a [WHO GLASS](https://www.who.int/initiatives/glass) diagnostic report.
+- Parses Deeplex Excel sheets including drug resistance variants, uncharacterised variants, and synonymous variant tabs
+- Maps variant, resistance, and lineage fields into standardized terminologies including LOINC, SNOMED CT, and HGVS
+- Merges observations into a FHIR-compliant `DiagnosticReport` with resistance classification such as HR-TB, MDR-TB, or XDR-TB
+- Produces FHIR bundle outputs containing variant observations, susceptibility panels, lineage observations, and DiagnosticReport resources.
 
 ## Why This Matters Clinically
 
-Klebsiella pneumoniae can acquire resistance and virulence traits that change both treatment options. A workflow that turns sequencing results into standardized FHIR-based summaries helps make resistance, strain typing, and virulence findings easier to interpret consistently across public health and clinical settings for faster decision-making.
+Drug-resistant tuberculosis treatment depends on detecting the right resistance pattern quickly and communicating it clearly. Converting Deeplex assay results into standardized FHIR Genomics resources reduces manual interpretation and makes findings easier to integrate into clinical and public health reporting for faster decision-making.
 
 ## Reproducibility
 
-- One workflow supports multiple sequencing platforms without changing the downstream reporting model
-- Workflow parameters and software dependencies are centrally configured
-- Standardized terminologies make resistance, typing, and susceptibility results easier to exchange across clinical and surveillance systems
+- Workflow parameters and versioned dependencies are managed through the pipeline configuration
+- Standardized clinical terminology improves interoperability across clinical and public health systems
 
 ## Links
 
-- GitHub repository: [kp-to-fhir-full](https://github.com/oucru-id/kp-to-fhir-full)
-- Technical documentation: [kp-pipeline-docs](https://kp-pipeline-docs.readthedocs.io/en/latest/index.html)
+- GitHub repository: [tb-to-fhir-deeplex](https://github.com/oucru-id/tb-to-fhir-deeplex)
+- Technical documentation: [deeplex-tb-to-fhir](https://deeplex-tb-to-fhir.readthedocs.io/en/latest/)
+- Assay website: [Deeplex Myc-TB](https://www.deeplex.com/deeplex-myc-tb-tuberculosis-drug-resistance-diagnostic-kit/)
