@@ -2,3 +2,17 @@
 ---
 
 @import "minimal-mistakes";
+
+.project-page .page__content {
+	font-size: 0.96rem;
+}
+
+.project-page .page__content p,
+.project-page .page__content li,
+.project-page .page__content dl {
+	font-size: inherit;
+}
+---
+---
+
+@import "minimal-mistakes";
