@@ -87,6 +87,8 @@ The snippets below show the example of FHIR output produced by the pipeline.
 
 A platform-agnostic workflow helps standardize resistance interpretation and FHIR-based reporting across heterogeneous data sources, making the results more consistent and enabling faster decision-making for clinical care and surveillance.
 
+![TB Genomic Analysis Dashboard]({{ '/assets/images/portfol-2.png' | relative_url }})
+
 ## Reproducibility
 
 - One pipeline supports multiple input types without changing the reporting model
