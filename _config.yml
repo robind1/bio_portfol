@@ -54,11 +54,9 @@ author:
 
 footer:
   links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
+    - icon: "fab fa-fw fa-github"
       url: "https://github.com/robind1"
-    - label: "Google Scholar"
-      icon: "fas fa-fw fa-graduation-cap"
+    - icon: "fas fa-fw fa-graduation-cap"
       url: "https://scholar.google.com/citations?user=qUn3spEAAAAJ&hl=en"
 
 markdown: kramdown
