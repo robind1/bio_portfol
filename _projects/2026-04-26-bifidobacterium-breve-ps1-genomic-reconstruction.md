@@ -20,26 +20,6 @@ The [CAZyme](https://www.cazy.org/) and [GlycoBif](https://github.com/Arzamasov/
 
 ![ANI comparison]({{ '/assets/images/portfol-4.png' | relative_url }})
 
-Below summarizes the main carbohydrate-focused findings.
-
-```yaml
-cazyme_profile:
-  glycoside_hydrolases: 61
-  glycosyl_transferases: 33
-  carbohydrate_esterases: 5
-glycobif_predicted_substrates:
-  - lacto-N-tetraose (LNT)
-  - lacto-N-neotetraose (LNnT)
-  - lacto-N-biose (LNB)
-  - N-acetylneuraminic acid (Neu5Ac)
-  - galactooligosaccharides (GOS)
-  - short-chain fructooligosaccharides (scFOS)
-biological_interpretation:
-  - infant gut glycan adaptation
-  - cross-feeding compatibility in HMO-rich environments
-  - persistence beyond breastfeeding through prebiotic utilization
-```
-
 ## Dataset and Inputs
 
 - Oxford Nanopore (ONT) whole-genome sequencing assembly of *B. breve* PS1
