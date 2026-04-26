@@ -13,7 +13,7 @@ feature_row_pathogens:
   - image_path: "/assets/images/FHIR_logo.png"
     alt: "Platform-agnostic TB to FHIR pipeline"
     title: "Platform-agnostic TB to FHIR pipeline"
-    excerpt: "Illumina, Nanopore, and VCF workflow for TB genomic analysis."
+    excerpt: "Platform-agnostic TB genomic analysis to FHIR Genomics reporting."
     url: "/projects/2026-04-25-platform-agnostic-tb-genomic-analysis-to-fhir/"
     btn_label: "Details"
     btn_class: "btn--primary"
