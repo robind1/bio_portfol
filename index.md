@@ -41,10 +41,10 @@ feature_row_pathogens:
 ---
 
 ![Portfolio overview illustration]({{ '/assets/images/portfol-1.svg' | relative_url }})
-{: style="display:block; max-width:760px; margin:1.5rem auto 1.5rem;" }
+{: style="display:block; max-width:1000px; margin:1.5rem auto 1.5rem;" }
 
-I am a bioinformatician focused on pathogen genomics, algorithm design, reproducible workflow design, and interoperability. My work combines sequencing analysis with standardized Fast Healthcare Interoperability Resources (FHIR) that turn genomic findings into practical outputs for interpretation, surveillance, and downstream integration.
-{: style="max-width:860px; margin:0 auto 2.25rem; font-size:0.96rem; line-height:1.8;" }
+Bioinformatician focused on pathogen genomics, algorithm design, reproducible workflow, and interoperability. My work combines sequencing analysis with standardized Fast Healthcare Interoperability Resources (FHIR) that turn genomic findings into practical outputs for interpretation, surveillance, and downstream integration.
+{: style="max-width:1000px; margin:0 auto 2.25rem; font-size:0.75rem; line-height:1.8;" }
 
 ## Featured Works
 
